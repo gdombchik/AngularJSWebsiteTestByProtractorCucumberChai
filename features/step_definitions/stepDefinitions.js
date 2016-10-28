@@ -28,7 +28,7 @@ module.exports = function() {
 
     this.Then(/^I check the properties of the Download AngularJS One page\.$/, function (table, callback) {
         //check the properties of the DownloadAngularJSOnePage
-        expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS');
+        expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS1');
         expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.5.x (stable)');
         expect(downloadAngularJSOnePage.buildMinified.getText()).to.eventually.equal('Minified');
         expect(downloadAngularJSOnePage.buildUncompressed.getText()).to.eventually.equal('Uncompressed');
