@@ -28,6 +28,8 @@ module.exports = function() {
 
     this.Then(/^I check the properties of the Download AngularJS One page\.$/, function (table, callback) {
         //check the properties of the DownloadAngularJSOnePage
+
+        browser.wait(downloadAngularJSOnePage.titleLabel.getText()).isPresent;
         expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS');
         expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.5.x (stable)');
         expect(downloadAngularJSOnePage.buildMinified.getText()).to.eventually.equal('Minified');
@@ -37,8 +39,8 @@ module.exports = function() {
 
         //which build button has been selected
         expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).to.eventually.contain('active'); //selected
-        //expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.contain('active'); //not selected
-        //expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.contain('active'); //not selected
+        expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.eventually.contain('active');  //not selected
+        expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.eventually.contain('active');  //not selected
 
         expect(downloadAngularJSOnePage.getBower()).to.eventually.contain('bower');
         expect(downloadAngularJSOnePage.getNpm()).to.eventually.contain('npm');
