@@ -36,22 +36,21 @@ module.exports = function() {
         expect(downloadAngularJSOnePage.cdn.getAttribute('value')).to.eventually.contain('angular.min.js');
 
         //which build button has been selected
-        //expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).to.contain('active'); //selected
+        expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).to.eventually.contain('active'); //selected
         //expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.contain('active'); //not selected
         //expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.contain('active'); //not selected
 
         expect(downloadAngularJSOnePage.getBower()).to.eventually.contain('bower');
         expect(downloadAngularJSOnePage.getNpm()).to.eventually.contain('npm');
-        expect(downloadAngularJSOnePage.extras.getText()).to.eventually.equal('Browse additional modules').and.notify(callback);
-        //expect(downloadAngularJSOnePage.previousVersions.getText()).toEqual('Previous Versions');
-        //expect(downloadAngularJSOnePage.getDownloadButton()).toContain('angular.min.js');
-
-        //assert.isOk(false, 'this will fail');
-
-        //callback();
+        expect(downloadAngularJSOnePage.extras.getText()).to.eventually.equal('Browse additional modules');
+        expect(downloadAngularJSOnePage.previousVersions.getText()).to.eventually.equal('Previous Versions');
+        expect(downloadAngularJSOnePage.getDownloadButton()).to.eventually.contain('angular.min.js').and.notify(callback);
     });
 
     this.Then(/^I click on the Close button of the Download AngularJS One page\.$/, function (callback) {
-        callback();
+        var closeButton = downloadAngularJSOnePage.getCloseButton();
+        expect(closeButton.getText()).to.eventually.equal('×');
+        closeButton.click();
+        expect(homePage.tryTheNewAngularTwoButton.getText()).to.eventually.equal('Design Docs & Notes').and.notify(callback);
     });
 };
