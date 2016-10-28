@@ -37,8 +37,8 @@ module.exports = function() {
 
         //which build button has been selected
         expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).to.eventually.contain('active'); //selected
-        expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.contain('active'); //not selected
-        expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.contain('active'); //not selected
+        //expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.contain('active'); //not selected
+        //expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.contain('active'); //not selected
 
         expect(downloadAngularJSOnePage.getBower()).to.eventually.contain('bower');
         expect(downloadAngularJSOnePage.getNpm()).to.eventually.contain('npm');
