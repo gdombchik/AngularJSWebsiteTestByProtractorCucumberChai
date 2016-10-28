@@ -28,21 +28,21 @@ module.exports = function() {
 
     this.Then(/^I check the properties of the Download AngularJS One page\.$/, function (table, callback) {
         //check the properties of the DownloadAngularJSOnePage
-        expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS1');
+        expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS');
         expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.5.x (stable)');
         expect(downloadAngularJSOnePage.buildMinified.getText()).to.eventually.equal('Minified');
         expect(downloadAngularJSOnePage.buildUncompressed.getText()).to.eventually.equal('Uncompressed');
         expect(downloadAngularJSOnePage.buildZip.getText()).to.eventually.equal('Zip');
-        expect(downloadAngularJSOnePage.cdn.getAttribute('value')).to.eventually.contain('angular.min.js').and.notify(callback);
+        expect(downloadAngularJSOnePage.cdn.getAttribute('value')).to.eventually.contain('angular.min.js');
 
         //which build button has been selected
-        //expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).toContain('active'); //selected
-        //expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).not.toContain('active'); //not selected
-        //expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).not.toContain('active'); //not selected
+        //expect(downloadAngularJSOnePage.buildMinified.getAttribute('class')).to.contain('active'); //selected
+        //expect(downloadAngularJSOnePage.buildUncompressed.getAttribute('class')).to.not.contain('active'); //not selected
+        //expect(downloadAngularJSOnePage.buildZip.getAttribute('class')).to.not.contain('active'); //not selected
 
-        //expect(downloadAngularJSOnePage.getBower()).toContain('bower');
-        //expect(downloadAngularJSOnePage.getNpm()).toContain('npm');
-        //expect(downloadAngularJSOnePage.extras.getText()).toEqual('Browse additional modules');
+        expect(downloadAngularJSOnePage.getBower()).to.eventually.contain('bower');
+        expect(downloadAngularJSOnePage.getNpm()).to.eventually.contain('npm');
+        expect(downloadAngularJSOnePage.extras.getText()).to.eventually.equal('Browse additional modules').and.notify(callback);
         //expect(downloadAngularJSOnePage.previousVersions.getText()).toEqual('Previous Versions');
         //expect(downloadAngularJSOnePage.getDownloadButton()).toContain('angular.min.js');
 
