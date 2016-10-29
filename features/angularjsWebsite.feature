@@ -40,3 +40,6 @@ Feature: To test the AngularJS website home page.
       | Field                | Value                |
       | First Todo Checkbox  | learn angular        |
       | Second Todo Checkbox | build an angular app |
+    Then I confirm the todo checkboxes that are selected.
+      | Field               | Value         |
+      | First Todo Checkbox | learn angular |

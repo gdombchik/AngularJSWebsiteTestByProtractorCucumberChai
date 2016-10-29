@@ -81,6 +81,7 @@ module.exports = function() {
 
     this.When(/^I confirm the labels of the current todo items\.$/, function (table, callback) {
         addSomeControl = homePage.getAddSomeControl();
+
         //initial todo count
         expect(addSomeControl.todoList.count()).to.eventually.equal(2);
 
@@ -88,6 +89,17 @@ module.exports = function() {
         addSomeControl.todoList.each(function (element, index) {
             element.getText().then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
+
+        callback();
+    });
+
+    this.Then(/^I confirm the todo checkboxes that are selected\.$/, function (table, callback) {
+        //todos checkbox selected
+        addSomeControl.todoListChecked.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text); //learn angular
             });
         });
 
