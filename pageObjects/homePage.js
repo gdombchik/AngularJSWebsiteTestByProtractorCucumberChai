@@ -2,6 +2,7 @@
 var downloadAngularJSOnePage = require('./downloadAngularJSOnePage.js');
 var theBasics = require('./theBasics.js');
 var addSomeControl = require('./addSomeControl.js');
+var testWireUpABackend = require('./testWireUpABackend.js');
 
 var HomePage = function(){
     //Download AngularJS 1
@@ -26,6 +27,11 @@ var HomePage = function(){
     //The Add Some Control page object
     this.getAddSomeControl = function(){
         return addSomeControl;
+    }
+
+    //Test WireUp A Backend page object
+    this.getTestWireUpABackend = function(){
+        return testWireUpABackend;
     }
 };
 
