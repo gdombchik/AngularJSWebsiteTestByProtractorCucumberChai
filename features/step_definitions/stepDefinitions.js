@@ -137,6 +137,13 @@ module.exports = function() {
     });
 
     this.Then(/^I select the check box of the new todo item\.$/, function (table, callback) {
+        addSomeControl.todoList.each(function (element, index) { //recheck the checkbox not selected values
+            element.getText().then(function (text) {
+                if(text == table.rowsHash()[ 'New Todo List Item' ]){
+                    addSomeControl.checkBoxes.get(index).click(); //check the 'Go to the dentist' checkbox
+                }
+            });
+        });
 
         callback();
     });
