@@ -76,4 +76,12 @@ module.exports = function() {
         expect(theBasics.getName()).to.eventually.equal('Hello Greg!');
         callback();
     });
+
+    this.When(/^I confirm the labels of the current todo items\.$/, function (table, callback) {
+        addSomeControl = homePage.getAddSomeControl();
+        //initial todo count
+        expect(addSomeControl.todoList.count()).toBe(2);
+
+        callback();
+    });
 };

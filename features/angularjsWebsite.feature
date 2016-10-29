@@ -34,3 +34,9 @@ Feature: To test the AngularJS website home page.
       | Field        | Value       |
       | Name Message | Hello Greg! |
 
+  @angularJSWebsiteTestAddSomeControl
+  Scenario: Test Add Some Control.
+    When I confirm the labels of the current todo items.
+      | Field                | Value                |
+      | First Todo Checkbox  | learn angular        |
+      | Second Todo Checkbox | build an angular app |
