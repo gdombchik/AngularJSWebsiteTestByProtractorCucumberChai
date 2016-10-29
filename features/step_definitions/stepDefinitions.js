@@ -54,6 +54,7 @@ module.exports = function() {
     });
 
     this.Then(/^I click on the Close button of the Download AngularJS One page\.$/, function (callback) {
+        browser.wait(downloadAngularJSOnePage.getCloseButton()).isPresent;
         var closeButton = downloadAngularJSOnePage.getCloseButton();
         expect(closeButton.getText()).to.eventually.equal('×');
         closeButton.click();
