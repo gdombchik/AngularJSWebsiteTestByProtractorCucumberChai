@@ -54,10 +54,10 @@ module.exports = function() {
     });
 
     this.Then(/^I click on the Close button of the Download AngularJS One page\.$/, function (callback) {
-        var closeButton = downloadAngularJSOnePage.getCloseButton();
+        /*var closeButton = downloadAngularJSOnePage.getCloseButton();
         expect(closeButton.getText()).to.eventually.equal('×');
         closeButton.click();
-        expect(homePage.tryTheNewAngularTwoButton.getText()).to.eventually.equal('Design Docs & Notes').and.notify(callback);
+        expect(homePage.tryTheNewAngularTwoButton.getText()).to.eventually.equal('Design Docs & Notes').and.notify(callback);*/
     });
 
     this.When(/^I fill in the name\.$/, function (table, callback) {
