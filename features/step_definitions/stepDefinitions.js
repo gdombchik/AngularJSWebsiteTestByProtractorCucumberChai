@@ -80,7 +80,7 @@ module.exports = function() {
     this.When(/^I confirm the labels of the current todo items\.$/, function (table, callback) {
         addSomeControl = homePage.getAddSomeControl();
         //initial todo count
-        expect(addSomeControl.todoList.count()).toBe(2);
+        expect(addSomeControl.todoList.count()).to.eventually.equal(2);
 
         callback();
     });
