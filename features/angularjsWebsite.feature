@@ -61,3 +61,42 @@ Feature: To test the AngularJS website home page.
       | Field               | Value             |
       | First Todo Checkbox | learn angular     |
       | New Todo List Item  | Go to the dentist |
+
+  @angularJSWebsiteTestWireUpABackend
+  Scenario: Test Wire Up A Backend.
+    When I confirm the labels of the current JavaScript Projects.
+      | Field               | Value               |
+      | Angular 2			| Angular 2		      |
+      | AngularJS			| AngularJS		      |
+      | Backbone			| Backbone		      |
+      | Cappucino			| Cappucino		      |
+      | Ember			    | Ember		          |
+      | GWT					| GWT			      |
+      | jQuery				| jQuery			  |
+      | Knockout			| Knockout			  |
+      | Polymer				| Polymer		      |
+      | React				| React			      |
+      | Spine				| Spine				  |
+      | SproutCore		    | SproutCore	      |
+    Then I confirm the labels of the current JavaScript Project Descriptions.
+      | Field               | Value                                             |
+      | Angular 2			| One framework. Mobile and desktop.		        |
+      | AngularJS			| HTML enhanced for web apps!		        		|
+      | Backbone			| Models for your apps.		       					|
+      | Cappucino			| Objective-J.		        						|
+      | Ember			    | Ambitious web apps.		        				|
+      | GWT					| JS in Java.			        					|
+      | jQuery				| Write less, do more.			     				|
+      | Knockout			| MVVM pattern.			   						    |
+      | Polymer				| Reusable components for the modern web.		    |
+      | React			    | A JavaScript library for building user interfaces.|
+      | Spine				| Awesome MVC Apps.					   				|
+      | SproutCore		    | A Framework for Innovative web-apps.				|
+    And Search for, update, and confirm a project values.
+      | Field               		    | Value               					|
+      | GWT_Current_Name			 	| GWT							        |
+      | GWT_Current_Website		 	    | http://www.gwtproject.org/			|
+      | GWT_Current_Description	        | JS in Java.			    		    |
+      | GWT_Updated_Name			    | GWT_Updated			    			|
+      | GWT_Updated_Website		        | http://www.gwtproject_updated.org/ 	|
+      | GWT_Updated_Description         | JS in Java._Updated 				    |

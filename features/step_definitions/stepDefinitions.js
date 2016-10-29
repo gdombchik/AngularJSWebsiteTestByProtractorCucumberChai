@@ -158,4 +158,19 @@ module.exports = function() {
         callback();
     });
 
+    this.When(/^I confirm the labels of the current JavaScript Projects\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I confirm the labels of the current JavaScript Project Descriptions\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^Search for, update, and confirm a project values\.$/, function (table, callback) {
+
+        callback();
+    });
+
 };
