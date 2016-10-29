@@ -118,6 +118,8 @@ module.exports = function() {
     });
 
     this.Then(/^I add a new todo item\.$/, function (table, callback) {
+        addSomeControl.addNewTodo(table.rows()[0][1]);
+        addSomeControl.addButton().click(); //click the add button to add the new todo value
 
         callback();
     });
