@@ -65,7 +65,7 @@ module.exports = function() {
         callback();
     });
 
-    this.When(/^I fill in the name\.$/, function (table, callback) {
+    /*this.When(/^I fill in the name\.$/, function (table, callback) {
         theBasics = homePage.getTheBasics();
         theBasics.setName(table.rowsHash()[ 'Name' ]);
         callback();
@@ -74,5 +74,5 @@ module.exports = function() {
     this.Then(/^I confirm the message\.$/, function (table, callback) {
         expect(theBasics.getName()).to.eventually.equal(table.rowsHash()[ 'Name Message' ])
             .and.notify(callback);
-    });
+    });*/
 };
