@@ -15,7 +15,7 @@ module.exports = function() {
     this.Given(/^I am on the AngularJS website home page\.$/, function (callback) {
         //Execute Before Each Scenario
         browser.get('http://angularjs.org');
-        console.log('---->Check to see if the given is executing before each scenario.');
+
         callback();
     });
 
@@ -69,11 +69,13 @@ module.exports = function() {
     this.When(/^I fill in the name\.$/, function (table, callback) {
         theBasics = homePage.getTheBasics();
         theBasics.setName(table.rowsHash()[ 'Name' ]);
+
         callback();
     });
 
     this.Then(/^I confirm the message\.$/, function (table, callback) {
-        expect(theBasics.getName()).to.eventually.equal('Hello Greg!');
+        expect(theBasics.getName()).to.eventually.equal(table.rowsHash()[ 'Name Message' ]);
+
         callback();
     });
 
@@ -81,6 +83,13 @@ module.exports = function() {
         addSomeControl = homePage.getAddSomeControl();
         //initial todo count
         expect(addSomeControl.todoList.count()).to.eventually.equal(2);
+
+        //current todo values
+        addSomeControl.todoList.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
 
         callback();
     });
