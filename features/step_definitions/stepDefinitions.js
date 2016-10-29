@@ -149,6 +149,11 @@ module.exports = function() {
     });
 
     this.Then(/^I recheck the value of the todo items\.$/, function (table, callback) {
+        addSomeControl.todoListChecked.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text); //'learn angular' and 'Go to the dentist'
+            });
+        });
 
         callback();
     });
