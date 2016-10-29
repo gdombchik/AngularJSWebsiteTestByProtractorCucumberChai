@@ -72,7 +72,6 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the message\.$/, function (table, callback) {
-        expect(theBasics.getName()).to.eventually.equal(table.rowsHash()[ 'Name Message' ])
-            .and.notify(callback);
+       
     });
 };
