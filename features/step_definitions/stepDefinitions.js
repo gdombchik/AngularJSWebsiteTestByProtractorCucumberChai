@@ -72,7 +72,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the message\.$/, function (table, callback) {
-        expect(theBasics.getName()).toBe('Hello Greg!');
+        expect(theBasics.getName()).to.eventually.equal('Hello Greg!');
         callback();
     });
 };
