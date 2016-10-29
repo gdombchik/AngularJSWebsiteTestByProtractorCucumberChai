@@ -127,6 +127,11 @@ module.exports = function() {
     });
 
     this.Then(/^I check the values of the todo items\.$/, function (table, callback) {
+        addSomeControl.todoList.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
 
         callback();
     });
