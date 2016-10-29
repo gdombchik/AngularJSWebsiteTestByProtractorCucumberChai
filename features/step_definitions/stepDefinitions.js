@@ -121,7 +121,7 @@ module.exports = function() {
         addSomeControl.addNewTodo(table.rows()[0][1]);
         addSomeControl.addButton().click(); //click the add button to add the new todo value
 
-        expect(addSomeControl.todoList.count()).toBe(3);  //todo count has increased to three
+        expect(addSomeControl.todoList.count()).to.eventually.equal(3);  //todo count has increased to three
 
         callback();
     });
