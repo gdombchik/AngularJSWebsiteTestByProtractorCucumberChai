@@ -107,6 +107,12 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the todo checkboxes that are not selected\.$/, function (table, callback) {
+        //todos checkbox not selected
+        addSomeControl.todoListNotChecked.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text); //build an angular app
+            });
+        });
 
         callback();
     });
