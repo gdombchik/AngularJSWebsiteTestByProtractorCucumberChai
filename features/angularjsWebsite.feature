@@ -34,30 +34,4 @@ Feature: To test the AngularJS website home page.
       | Field        | Value       |
       | Name Message | Hello Greg! |
 
-  @angularJSWebsiteTestAddSomeControl
-  Scenario: Test Add Some Control.
-    When I confirm the labels of the current todo items.
-      | Field                | Value                |
-      | First Todo Checkbox  | learn angular        |
-      | Second Todo Checkbox | build an angular app |
-    Then I confirm the todo checkboxes that are selected.
-      | Field               | Value         |
-      | First Todo Checkbox | learn angular |
-    And I confirm the todo checkboxes that are not selected.
-      | Field                | Value                |
-      | Second Todo Checkbox | build an angular app |
-    Then I add a new todo item.
-      | Field              | Value             |
-      | New Todo List Item | Go to the dentist |
-    And I check the values of the todo items.
-      | Field                | Value                |
-      | First Todo Checkbox  | learn angular        |
-      | Second Todo Checkbox | build an angular app |
-      | New Todo List Item   | Go to the dentist    |
-    Then I select the check box of the new todo item.
-      | Field              | Value             |
-      | New Todo List Item | Go to the dentist |
-    And I recheck the value of the todo items.
-      | Field               | Value             |
-      | First Todo Checkbox | learn angular     |
-      | New Todo List Item  | Go to the dentist |
+  
