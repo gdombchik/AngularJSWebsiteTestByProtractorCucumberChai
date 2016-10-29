@@ -18,17 +18,19 @@ module.exports = function() {
 
     this.When(/^I confirm I am on the AngularJS website home page\.$/, function (table,callback) {
         expect(homePage.downLoadAngularJSOneButton.getText()).to.eventually.equal(table.rowsHash()[ 'DownLoad Angular JS One Button' ]); //Download AngularJS 1\n\n(1.5.8 / 1.2.30)
-        expect(homePage.downLoadAngularJSOneButton.getText()).to.eventually.equal(table.rows()[0][1]).and.notify(callback); //Download AngularJS 1\n\n(1.5.8 / 1.2.30)
+        expect(homePage.downLoadAngularJSOneButton.getText()).to.eventually.equal(table.rows()[0][1]); //Download AngularJS 1\n\n(1.5.8 / 1.2.30)
+
+        callback();
     });
 
     this.Then(/^I click on the Download AngularJS One button\.$/, function (callback) {
         downloadAngularJSOnePage = homePage.clickDownloadAngularJSOnePage();
+
         callback();
     });
 
     this.Then(/^I check the properties of the Download AngularJS One page\.$/, function (table, callback) {
         //check the properties of the DownloadAngularJSOnePage
-
         browser.wait(downloadAngularJSOnePage.titleLabel.getText()).isPresent;
         expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS');
         expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.5.x (stable)');
@@ -46,7 +48,9 @@ module.exports = function() {
         expect(downloadAngularJSOnePage.getNpm()).to.eventually.contain('npm');
         expect(downloadAngularJSOnePage.extras.getText()).to.eventually.equal('Browse additional modules');
         expect(downloadAngularJSOnePage.previousVersions.getText()).to.eventually.equal('Previous Versions');
-        expect(downloadAngularJSOnePage.getDownloadButton()).to.eventually.contain('angular.min.js').and.notify(callback);
+        expect(downloadAngularJSOnePage.getDownloadButton()).to.eventually.contain('angular.min.js');
+
+        callback();
     });
 
     this.Then(/^I click on the Close button of the Download AngularJS One page\.$/, function (callback) {
@@ -59,11 +63,59 @@ module.exports = function() {
     this.When(/^I fill in the name\.$/, function (table, callback) {
         theBasics = homePage.getTheBasics();
         theBasics.setName(table.rowsHash()[ 'Name' ]);
+
         callback();
     });
 
     this.Then(/^I confirm the message\.$/, function (table, callback) {
         expect(theBasics.getName()).to.eventually.equal(table.rowsHash()[ 'Name Message' ]);
+
+        callback();
+    });
+
+    this.When(/^I confirm the labels of the current todo items\.$/, function (table, callback) {
+        addSomeControl = homePage.getAddSomeControl();
+
+        //initial todo count
+        expect(addSomeControl.todoList.count()).to.eventually.equal(2);
+
+        //current todo values
+        addSomeControl.todoList.each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
+
+        callback();
+    });
+
+    this.Then(/^I confirm the todo checkboxes that are selected\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback();
+    });
+
+    this.Then(/^I confirm the todo checkboxes that are not selected\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback();
+    });
+
+    this.Then(/^I add a new todo item\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback();
+    });
+
+    this.Then(/^I check the values of the todo items\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback();
+    });
+
+    this.Then(/^I select the check box of the new todo item\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback();
+    });
+
+    this.Then(/^I recheck the value of the todo items\.$/, function (table, callback) {
+        // Write code here that turns the phrase above into concrete actions
         callback();
     });
 };
