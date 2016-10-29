@@ -54,11 +54,11 @@ module.exports = function() {
     });
 
     this.Then(/^I click on the Close button of the Download AngularJS One page\.$/, function (callback) {
-        /*browser.wait(downloadAngularJSOnePage.getCloseButton()).isPresent;
+        browser.wait(downloadAngularJSOnePage.getCloseButton()).isPresent;
         var closeButton = downloadAngularJSOnePage.getCloseButton();
         expect(closeButton.getText()).to.eventually.equal('×');
         closeButton.click();
-        expect(homePage.tryTheNewAngularTwoButton.getText()).to.eventually.equal('Design Docs & Notes');*/
+        expect(homePage.tryTheNewAngularTwoButton.getText()).to.eventually.equal('Design Docs & Notes');
 
         callback();
     });
@@ -73,52 +73,6 @@ module.exports = function() {
     this.Then(/^I confirm the message\.$/, function (table, callback) {
         expect(theBasics.getName()).to.eventually.equal(table.rowsHash()[ 'Name Message' ]);
 
-        callback();
-    });
-
-    this.When(/^I confirm the labels of the current todo items\.$/, function (table, callback) {
-        /*addSomeControl = homePage.getAddSomeControl();
-
-        //initial todo count
-        expect(addSomeControl.todoList.count()).to.eventually.equal(2);
-
-        //current todo values
-        addSomeControl.todoList.each(function (element, index) {
-            element.getText().then(function (text) {
-                expect(table.rows()[index][1]).to.equal(text);
-            });
-        });*/
-
-        callback();
-    });
-
-    this.Then(/^I confirm the todo checkboxes that are selected\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback();
-    });
-
-    this.Then(/^I confirm the todo checkboxes that are not selected\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback();
-    });
-
-    this.Then(/^I add a new todo item\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback();
-    });
-
-    this.Then(/^I check the values of the todo items\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback();
-    });
-
-    this.Then(/^I select the check box of the new todo item\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback();
-    });
-
-    this.Then(/^I recheck the value of the todo items\.$/, function (table, callback) {
-        // Write code here that turns the phrase above into concrete actions
         callback();
     });
 };

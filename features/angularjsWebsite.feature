@@ -34,4 +34,3 @@ Feature: To test the AngularJS website home page.
       | Field        | Value       |
       | Name Message | Hello Greg! |
 
-  
