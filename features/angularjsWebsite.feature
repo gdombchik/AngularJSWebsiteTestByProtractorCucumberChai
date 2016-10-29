@@ -25,3 +25,11 @@ Feature: To test the AngularJS website home page.
       | Close Button       | ×                         |
     Then I click on the Close button of the Download AngularJS One page.
 
+  @angularJSWebsiteTestTheBasics
+  Scenario: Test The Basics.
+    When I fill in the name.
+      | Field | Value |
+      | Name  | Greg  |
+    Then I confirm the message.
+      | Field        | Value       |
+      | Name Message | Hello Greg! |
