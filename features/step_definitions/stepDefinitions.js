@@ -13,7 +13,8 @@ module.exports = function() {
     var addSomeControl = require('../../pageObjects/addSomeControl.js');
 
     this.Given(/^I am on the AngularJS website home page\.$/, function (callback) {
-        browser.get('http://angularjs.org').then(callback);
+        browser.get('http://angularjs.org');
+        callback();
     });
 
     this.When(/^I confirm I am on the AngularJS website home page\.$/, function (table,callback) {
