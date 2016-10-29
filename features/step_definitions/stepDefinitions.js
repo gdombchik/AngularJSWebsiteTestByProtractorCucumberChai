@@ -105,4 +105,30 @@ module.exports = function() {
 
         callback();
     });
+
+    this.Then(/^I confirm the todo checkboxes that are not selected\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I add a new todo item\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I check the values of the todo items\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I select the check box of the new todo item\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I recheck the value of the todo items\.$/, function (table, callback) {
+
+        callback();
+    });
+
 };
