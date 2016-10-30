@@ -11,8 +11,8 @@ module.exports = function() {
     var downloadAngularJSOnePage = require('../../pageObjects/downloadAngularJSOnePage.js');
     var theBasics = require('../../pageObjects/theBasics.js');
     var addSomeControl = require('../../pageObjects/addSomeControl.js');
-    var testWireUpABackend = require('../../pageObjects/testWireUpABackend.js');
-    var testCreateComponents = require('../../pageObjects/testCreateComponents.js');
+    var wireUpABackend = require('../../pageObjects/wireUpABackend.js');
+    var createComponents = require('../../pageObjects/createComponents.js');
 
     this.Given(/^I am on the AngularJS website home page\.$/, function (callback) {
         //Execute Before Each Scenario
@@ -186,7 +186,7 @@ module.exports = function() {
     });
 
     this.When(/^I confirm the locales\.$/, function (table, callback) {
-        testCreateComponents.getLocales().each(function (element, index) {
+        createComponents.getLocales().each(function (element, index) {
             element.getText().then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });
@@ -196,7 +196,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the localization values for United States\.$/, function (table, callback) {
-        testCreateComponents.getUnitedStatesLocalization().each(function (element, index) {
+        createComponents.getUnitedStatesLocalization().each(function (element, index) {
             element.getText().then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });
@@ -206,7 +206,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the pluralization values for United States\.$/, function (table, callback) {
-        testCreateComponents.getUnitedStatesPluralization().each(function (element, index) {
+        createComponents.getUnitedStatesPluralization().each(function (element, index) {
             element.getAttribute('innerHTML').then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });
@@ -216,7 +216,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the localization values for Slovakia\.$/, function (table, callback) {
-        testCreateComponents.getSlovakiaLocalization().each(function (element, index) {
+        createComponents.getSlovakiaLocalization().each(function (element, index) {
             element.getText().then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });
@@ -226,7 +226,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the pluralization values for Slovakia\.$/, function (table, callback) {
-        testCreateComponents.getSlovakiaPluralization().each(function (element, index) {
+        createComponents.getSlovakiaPluralization().each(function (element, index) {
             element.getAttribute('innerHTML').then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });

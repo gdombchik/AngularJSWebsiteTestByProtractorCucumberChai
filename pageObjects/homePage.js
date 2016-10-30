@@ -2,8 +2,8 @@
 var downloadAngularJSOnePage = require('./downloadAngularJSOnePage.js');
 var theBasics = require('./theBasics.js');
 var addSomeControl = require('./addSomeControl.js');
-var testWireUpABackend = require('./testWireUpABackend.js');
-var testCreateComponents = require('./testCreateComponents.js');
+var wireUpABackend = require('./wireUpABackend.js');
+var createComponents = require('./createComponents.js');
 
 var HomePage = function(){
     //Download AngularJS 1
@@ -31,12 +31,12 @@ var HomePage = function(){
     }
 
     //Test WireUp A Backend page object
-    this.getTestWireUpABackend = function(){
-        return testWireUpABackend;
+    this.getWireUpABackend = function(){
+        return wireUpABackend;
     }
 
-    this.getTestCreateComponents = function(){
-        return testCreateComponents;
+    this.getCreateComponents = function(){
+        return createComponents;
     }
 };
 

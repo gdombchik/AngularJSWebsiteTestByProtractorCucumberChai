@@ -1,4 +1,4 @@
-var TestCreateComponents = function () {
+var CreateComponents = function () {
     this.getLocales = function(){
         return element.all(by.tagName("h4"));
     }
@@ -20,4 +20,4 @@ var TestCreateComponents = function () {
     }
 };
 
-module.exports = new TestCreateComponents();
+module.exports = new CreateComponents();
