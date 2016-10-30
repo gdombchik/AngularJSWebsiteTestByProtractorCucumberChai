@@ -161,6 +161,16 @@ module.exports = function() {
 
     this.When(/^I confirm the labels of the current JavaScript Projects\.$/, function (table, callback) {
 
+        //element.all(by.repeater('project in projectList.projects').column('project.name')).each(function (element, index) { element.getText().then(function (text) { console.log(text); }); });
+
+        /*element.all(by.repeater('todo in todoList.todos')).each(function (element, index) {
+            element.getText().then(function (text) {
+                console.log(text);
+            });
+        });*/
+        /*console.log("before");
+        element.all(by.repeater('project in projectList.projects').column('project.name')).each(function (element, index) { element.getText().then(function (text) { console.log(text); }); });
+        console.log("after");*/
         callback();
     });
 
@@ -170,6 +180,31 @@ module.exports = function() {
     });
 
     this.Then(/^Search for, update, and confirm a project values\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.When(/^I confirm the locales\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I confirm the localization values for United States\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I confirm the pluralization values for United States\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I confirm the localization values for Slovakia\.$/, function (table, callback) {
+
+        callback();
+    });
+
+    this.Then(/^I confirm the pluralization values for Slovakia\.$/, function (table, callback) {
 
         callback();
     });
