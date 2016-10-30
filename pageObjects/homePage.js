@@ -35,6 +35,7 @@ var HomePage = function(){
         return wireUpABackend;
     }
 
+    //Test Create Components
     this.getCreateComponents = function(){
         return createComponents;
     }
