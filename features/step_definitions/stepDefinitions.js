@@ -12,6 +12,7 @@ module.exports = function() {
     var theBasics = require('../../pageObjects/theBasics.js');
     var addSomeControl = require('../../pageObjects/addSomeControl.js');
     var testWireUpABackend = require('../../pageObjects/testWireUpABackend.js');
+    var testCreateComponents = require('../../pageObjects/testCreateComponents.js');
 
     this.Given(/^I am on the AngularJS website home page\.$/, function (callback) {
         //Execute Before Each Scenario
