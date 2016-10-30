@@ -186,6 +186,11 @@ module.exports = function() {
     });
 
     this.When(/^I confirm the locales\.$/, function (table, callback) {
+        testCreateComponents.getLocales().each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
 
         callback();
     });
@@ -221,8 +226,11 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the pluralization values for Slovakia\.$/, function (table, callback) {
-
-
+        testCreateComponents.getSlovakiaPluralization().each(function (element, index) {
+            element.getAttribute('innerHTML').then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
 
         callback();
     });
