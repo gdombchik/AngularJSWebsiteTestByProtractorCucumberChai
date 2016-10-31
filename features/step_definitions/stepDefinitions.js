@@ -161,21 +161,24 @@ module.exports = function() {
     });
 
     this.When(/^I confirm the labels of the current JavaScript Projects\.$/, function (table, callback) {
+        //need to wait for element.all to become available
+        browser.wait(presenceOfAll(wireUpABackend.getJavaScriptProjects()), 10000);
 
-        //element.all(by.repeater('project in projectList.projects').column('project.name')).each(function (element, index) { element.getText().then(function (text) { console.log(text); }); });
-
-        /*element.all(by.repeater('todo in todoList.todos')).each(function (element, index) {
+        wireUpABackend.getJavaScriptProjects().each(function (element, index) {
             element.getText().then(function (text) {
-                console.log(text);
+                expect(table.rows()[index][1]).to.equal(text);
             });
-        });*/
-        /*console.log("before");
-        element.all(by.repeater('project in projectList.projects').column('project.name')).each(function (element, index) { element.getText().then(function (text) { console.log(text); }); });
-        console.log("after");*/
+        });
+
         callback();
     });
 
     this.Then(/^I confirm the labels of the current JavaScript Project Descriptions\.$/, function (table, callback) {
+        wireUpABackend.javaScriptProjectDescriptions().each(function (element, index) {
+            element.getText().then(function (text) {
+                expect(table.rows()[index][1]).to.equal(text);
+            });
+        });
 
         callback();
     });
@@ -235,4 +238,12 @@ module.exports = function() {
         callback();
     });
 
+    //http://stackoverflow.com/questions/34289029/protractor-wait-doesnt-work-with-element-all
+    function presenceOfAll(elementArrayFinder) {
+        return function () {
+            return elementArrayFinder.count(function (count) {
+                return count > 0;
+            });
+        };
+    }
 };
