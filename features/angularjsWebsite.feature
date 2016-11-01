@@ -95,8 +95,6 @@ Feature: To test the AngularJS website home page.
     And Search for, update, and confirm a project values.
       | Field               		    | Value               					|
       | GWT_Current_Name			 	| GWT							        |
-      | GWT_Current_Website		 	    | http://www.gwtproject.org/			|
-      | GWT_Current_Description	        | JS in Java.			    		    |
       | GWT_Updated_Name			    | GWT_Updated			    			|
       | GWT_Updated_Website		        | http://www.gwtproject_updated.org/ 	|
       | GWT_Updated_Description         | JS in Java._Updated 				    |

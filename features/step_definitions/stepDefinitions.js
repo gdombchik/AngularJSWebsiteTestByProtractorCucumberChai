@@ -185,7 +185,7 @@ module.exports = function() {
 
     this.Then(/^Search for, update, and confirm a project values\.$/, function (table, callback) {
         //Enter GWT in the Search Input Box
-        wireUpABackend.searchInput.sendKeys('GWT');
+        wireUpABackend.searchInput.sendKeys(table.rowsHash()[ 'GWT_Current_Name' ]);
 
         //browser.pause();
         browser.sleep(10000); //todo:  It takes a while to filter the search input.  Will clean this up.
@@ -197,9 +197,9 @@ module.exports = function() {
         wireUpABackend.editJavaScriptProjectWebsite.clear();
         wireUpABackend.editJavaScriptProjectDescription.clear();
 
-        wireUpABackend.editJavaScriptProjectName.sendKeys('GWT_Updated');
-        wireUpABackend.editJavaScriptProjectWebsite.sendKeys('http://www.gwtproject_updated.org/');
-        wireUpABackend.editJavaScriptProjectDescription.sendKeys('JS in Java._Updated');
+        wireUpABackend.editJavaScriptProjectName.sendKeys(table.rowsHash()[ 'GWT_Updated_Name' ]);
+        wireUpABackend.editJavaScriptProjectWebsite.sendKeys(table.rowsHash()[ 'GWT_Updated_Website' ]);
+        wireUpABackend.editJavaScriptProjectDescription.sendKeys(table.rowsHash()[ 'GWT_Updated_Description' ]);
 
         //Click the Save Button
         wireUpABackend.saveButton.click();
@@ -210,9 +210,9 @@ module.exports = function() {
         wireUpABackend.searchInput.sendKeys('GWT_Updated');
 
         //Confirm JavaScript Project labels has been updated
-        expect(wireUpABackend.getJavaScriptProjects().get(0).getText()).to.eventually.equal('GWT_Updated');
-        expect(wireUpABackend.getJavaScriptProjects().get(0).getAttribute('href')).to.eventually.equal('http://www.gwtproject_updated.org/');
-        expect(wireUpABackend.getJavaScriptProjectDescriptions().get(0).getText()).to.eventually.equal('JS in Java._Updated');
+        expect(wireUpABackend.getJavaScriptProjects().get(0).getText()).to.eventually.equal(table.rowsHash()[ 'GWT_Updated_Name' ]);
+        expect(wireUpABackend.getJavaScriptProjects().get(0).getAttribute('href')).to.eventually.equal(table.rowsHash()[ 'GWT_Updated_Website' ]);
+        expect(wireUpABackend.getJavaScriptProjectDescriptions().get(0).getText()).to.eventually.equal(table.rowsHash()[ 'GWT_Updated_Description' ]);
 
         callback();
     });
