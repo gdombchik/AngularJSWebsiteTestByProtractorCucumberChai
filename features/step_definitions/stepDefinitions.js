@@ -207,7 +207,7 @@ module.exports = function() {
         browser.sleep(10000);
 
         //Search for Updated GWT Project Name
-        wireUpABackend.searchInput.sendKeys('GWT_Updated');
+        wireUpABackend.searchInput.sendKeys(table.rowsHash()[ 'GWT_Updated_Name' ]);
 
         //Confirm JavaScript Project labels has been updated
         expect(wireUpABackend.getJavaScriptProjects().get(0).getText()).to.eventually.equal(table.rowsHash()[ 'GWT_Updated_Name' ]);
