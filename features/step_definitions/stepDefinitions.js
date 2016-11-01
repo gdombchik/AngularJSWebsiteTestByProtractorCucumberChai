@@ -174,7 +174,7 @@ module.exports = function() {
     });
 
     this.Then(/^I confirm the labels of the current JavaScript Project Descriptions\.$/, function (table, callback) {
-        wireUpABackend.javaScriptProjectDescriptions().each(function (element, index) {
+        wireUpABackend.getJavaScriptProjectDescriptions().each(function (element, index) {
             element.getText().then(function (text) {
                 expect(table.rows()[index][1]).to.equal(text);
             });
@@ -184,6 +184,35 @@ module.exports = function() {
     });
 
     this.Then(/^Search for, update, and confirm a project values\.$/, function (table, callback) {
+        //Enter GWT in the Search Input Box
+        wireUpABackend.searchInput.sendKeys('GWT');
+
+        //browser.pause();
+        browser.sleep(10000); //todo:  It takes a while to filter the search input.  Will clean this up.
+
+        wireUpABackend.getJavaScriptProjectEditLinks().each(function (element, index) { element.click(); });
+
+        //Clear and Update the Project Name, Website, and Description Input Boxes
+        wireUpABackend.editJavaScriptProjectName.clear();
+        wireUpABackend.editJavaScriptProjectWebsite.clear();
+        wireUpABackend.editJavaScriptProjectDescription.clear();
+
+        wireUpABackend.editJavaScriptProjectName.sendKeys('GWT_Updated');
+        wireUpABackend.editJavaScriptProjectWebsite.sendKeys('http://www.gwtproject_updated.org/');
+        wireUpABackend.editJavaScriptProjectDescription.sendKeys('JS in Java._Updated');
+
+        //Click the Save Button
+        wireUpABackend.saveButton.click();
+
+        browser.sleep(10000);
+
+        //Search for Updated GWT Project Name
+        wireUpABackend.searchInput.sendKeys('GWT_Updated');
+
+        //Confirm JavaScript Project labels has been updated
+        expect(wireUpABackend.getJavaScriptProjects().get(0).getText()).to.eventually.equal('GWT_Updated');
+        expect(wireUpABackend.getJavaScriptProjects().get(0).getAttribute('href')).to.eventually.equal('http://www.gwtproject_updated.org/');
+        expect(wireUpABackend.getJavaScriptProjectDescriptions().get(0).getText()).to.eventually.equal('JS in Java._Updated');
 
         callback();
     });
