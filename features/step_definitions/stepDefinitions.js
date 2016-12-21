@@ -38,7 +38,7 @@ module.exports = function() {
         //check the properties of the DownloadAngularJSOnePage
         browser.wait(downloadAngularJSOnePage.titleLabel.getText()).isPresent;
         expect(downloadAngularJSOnePage.titleLabel.getText()).to.eventually.equal('Download AngularJS');
-        expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.5.x (stable)');
+        expect(downloadAngularJSOnePage.branch.getText()).to.eventually.equal('1.6.x (latest)');
         expect(downloadAngularJSOnePage.buildMinified.getText()).to.eventually.equal('Minified');
         expect(downloadAngularJSOnePage.buildUncompressed.getText()).to.eventually.equal('Uncompressed');
         expect(downloadAngularJSOnePage.buildZip.getText()).to.eventually.equal('Zip');
